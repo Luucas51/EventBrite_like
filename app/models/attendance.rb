@@ -1,7 +1,7 @@
 class Attendance < ApplicationRecord
-    after_create :attendace_send
+    after_create :attendanexitce_send
 
-    def attendace_send
+    def attendance_send
       AttendanceMailer.attendance_email(self).deliver_now
     end
 
