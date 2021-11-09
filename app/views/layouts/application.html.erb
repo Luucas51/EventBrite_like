@@ -24,10 +24,14 @@
 	        	<li class="nav-item">
               <a class="nav-link" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Crée un event</a>
             </li>
-	        	<li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %></li>
-	        	<li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %></li>
-	          <li class="nav-item"><%= link_to "Mon profil", edit_user_registration_path, class: "nav-link" %></li>
-	          <li class="nav-item"><%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", method: "DELETE" %></li>
+              <% if current_user.nil?%>
+              <li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %></li>
+              <%end%>
+              <% if user_signed_in?%>
+              <li class="nav-item"><%= link_to "Mon profil", edit_user_registration_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", method: "DELETE" %></li>
+              <%end%>
 	        </ul>
 	      </div>
 	    </div>
