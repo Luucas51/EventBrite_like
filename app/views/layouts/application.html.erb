@@ -21,14 +21,14 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav m-auto">
 	        	<li class="nav-item active"><%= link_to "Accueil", root_path, class: "nav-link" %></li>
-	        	<li class="nav-item">
-              <a class="nav-link" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Crée un event</a>
-            </li>
               <% if current_user.nil?%>
               <li class="nav-item"><%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %></li>
               <li class="nav-item"><%= link_to "Se connecter", new_user_session_path, class: "nav-link" %></li>
               <%end%>
               <% if user_signed_in?%>
+	        	<li class="nav-item">
+              <%= link_to "Crée un event", new_event_path, class: "nav-link"%>
+            </li>
               <li class="nav-item"><%= link_to "Mon profil", user_path(current_user.id), class: "nav-link" %></li>
               <li class="nav-item"><%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", method: "DELETE" %></li>
               <%end%>

@@ -1,0 +1,10 @@
+    <div class="card-body">
+      <ul class="card-body-left">
+        <h3 class="card-title"><%= @event.title %></h3>
+        <p class="card-text">Prix : <%= @event.price %> €</p>
+        <p class="card-text">Lieu : <%= @event.location %></p>
+        <p class="card-text">Date et heure de début : <%= @event.start_date.strftime("%d/%m/%Y %H:%M") %></p>
+        <p class="card-text">Durée : <%= @event.duration %></p>
+        <p class="card-text">Description de l'event : <%= @event.description %></p>
+      </ul>
+    </div>

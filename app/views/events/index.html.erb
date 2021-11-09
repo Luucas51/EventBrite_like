@@ -1,9 +1,19 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
+<style>
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+</style>
       <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">Bienvenue sur EventBrite</h1>
+          <h1 class="display-3">Bienvenue sur EventBrite <strong>TAIPEI</strong></h1>
           <p>Ci dessous retrouve tout les évenements présent dans ta ville</p>
-          <p><a class="btn btn-outline-dark btn-lg" href="#" role="button">Crée un évenement &raquo;</a></p>
+          <p><%= link_to "Crée un évenement", new_event_path, class: 'btn btn-outline-warning btn-lg'%></p>
         </div>
       </div>
 <h1> Voici tout les événements présent dans ta ville </h1>
@@ -13,8 +23,8 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title"><%= i.title %></h5>
-        <p class="card-text"><%= i.content %></p>
-        <div class="btn btn-outline-dark btn-lg"><%= link_to "En savoir plus", root_path %></div>
+        <p class="card-text"><%= i.description %></p>
+        <div class="btn btn-outline-warning btn-lg"><%= link_to "En savoir plus", event_path(i.id) %></div>
       </div>
     </div>
   </div>
