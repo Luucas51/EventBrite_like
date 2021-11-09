@@ -1,7 +1,19 @@
-<h1>Mon profil :</h1>
-Email : <%=@id.email%> <br>
-Prénom : <%=@id.first_name%> <br>
-Nom : <%=@id.last_name%> <br>
-Déscription : <%=@id.description%>
+<style>
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+</style>
+<div class="container-fluid text-center">
+<h2 class="texte-bienvenue mt-5">Mon profile : </h2>
+  Email : <%=@id.email%> <br>
+  Prénom : <%=@id.first_name%> <br>
+  Nom : <%=@id.last_name%> <br>
+  Description : <%=@id.description%> <br>
 
-<div class="btn btn-outline-dark btn-lg"><%= link_to "Edit profile", edit_user_registration_path %></div>
+  <div class="btn btn-outline-warning btn-s mt-5"><%= link_to "Changer mot de passe", edit_user_registration_path %></div>
+</div>

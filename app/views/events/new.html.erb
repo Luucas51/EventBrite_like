@@ -1,3 +1,8 @@
+<% if flash[:event_error] %>
+<div class="alert alert-danger" role="alert">
+  Erreur de saisis
+</div>
+<%end%>
 <div class="container-fluid text-center">
   <h2 class="texte-bienvenue mt-5">Crée un évenement</h2>
   <div class="container-fluid">
@@ -17,7 +22,7 @@
         <%= f.label "Lieu" %> <br />
         <%= f.text_field :location, autocomplete: :location %>
       </div><br />
-      
+
       <div class="field">
         <%= f.label "Prix" %> <br />
         <%= f.number_field :price, autocomplete: :price %>
