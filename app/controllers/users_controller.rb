@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @id = User.find(params[:id])
+    @event = Event.where(user: @id)
   end
 
   def is_good_user?
@@ -11,5 +12,6 @@ class UsersController < ApplicationController
   		redirect_to root_path
   	end
   end
-  
+
+ 
 end

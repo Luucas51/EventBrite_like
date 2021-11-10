@@ -13,7 +13,19 @@ a:hover {
   Email : <%=@id.email%> <br>
   Prénom : <%=@id.first_name%> <br>
   Nom : <%=@id.last_name%> <br>
-  Description : <%=@id.description%> <br>
+ <!-- Description : <%=@id.description%> <br>-->
 
   <div class="btn btn-outline-warning btn-s mt-5"><%= link_to "Changer mot de passe", edit_user_registration_path %></div>
-</div>
+
+
+	<% if @event.count == 0 %>
+<h2 class="texte-bienvenue mt-5">Vous n'avez pas encore crée un événement </h2>
+	<% else %>
+  	<h2 class="my-4 text-center">Voila tout vos évenement actuelle</h2>
+	        <% @event.each do |event| %>
+	          	<div class="card-body">
+	            <h3 class="card-text"><%= event.title %></h3>
+	            <p><a class="btn btn-outline-warning btn-l" href="<%= event_path(event.id)%>" role="button">Voir plus</a></p>
+	            </div>
+	        <% end %>
+    <% end %>

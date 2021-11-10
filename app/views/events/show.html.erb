@@ -10,22 +10,22 @@
         <p class="card-text">Prix : <%= @event.price %> €</p>
         <p class="card-text">Lieu : <%= @event.location %></p>
         <p class="card-text">Date et heure de début : <%= @event.start_date.strftime("%d/%m/%Y %H:%M") %></p>
-        <p class="card-text">Durée : <%= @event.duration %></p>
+        <p class="card-text">Durée : <%= @event.duration/60%> h</p>
         <p class="card-text">Description de l'event : <%= @event.description %></p>
         <p class="card-text">Contact de l'organisateur : <%= @event.user.email %></p>
         <p class="card-text">Nombre de participant : <%= @count_of_register %></p>
-        <% if current_user %>
-        
+        <%if current_user%>
         <% if @is_admin %>
         <%= link_to "Mon espace administrateur", event_attendances_path(params['id']), class: "btn btn-outline-warning btn-l"%> 
+        <%end%>
+        <% if @participated%>
+        <p>Inscris !</p>
         <%else%>
         <%= link_to "M'inscrire", new_event_attendance_path(params['id']), class: "btn btn-outline-warning btn-l"%> 
-        <%end%>
-        
         <%end%>
       </ul>
     </div>
     <%else%>
     <h1 class="text-center" style="color:red;">Tu n'a pas accès à cette page</h1>
-
+<%end%>
   <%end%>

@@ -6,6 +6,31 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+ 
+    if @event.update('start_date' => params[:start_date],
+                    'duration' => params[:duration],
+                    'description' => params[:description],
+                    'location' => params[:location],
+                    'price' => params[:price],
+                    'title' => params[:title])
+      redirect_to root_path, success: " Modification prise en compte! "
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    Event.find(params[:id]).destroy
+    redirect_to root_path
+  end
+
+
   def create
     @event = Event.new(
       title: event_params[:title],
@@ -45,7 +70,9 @@ class EventsController < ApplicationController
   end
 
   def participated?
+    if current_user
     Event.find(params['id']).users.ids
+    end
   end
 
   def is_admin?

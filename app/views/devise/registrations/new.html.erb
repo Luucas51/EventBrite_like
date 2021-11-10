@@ -17,6 +17,16 @@
   </div>
 
   <div class="field w-25 mx-auto">
+    <%= f.label :Prénom %><br />
+    <%= f.text_field :first_name, class: "form-control" %>
+  </div>
+
+  <div class="field w-25 mx-auto">
+    <%= f.label :Nom %><br />
+    <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+
+  <div class="field w-25 mx-auto">
     <%= f.label "Mot de passe" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> caractères minimum)</em>
