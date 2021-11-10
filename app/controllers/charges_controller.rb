@@ -11,7 +11,7 @@ class ChargesController < ApplicationController
     @attendance.event_id = Event.find(params['event_id']).id
 
     if @attendance.save
-      redirect_to root_path
+      redirect_to event_attendance_path(id: params['event_id'])
     end
 
     # Amount in cents

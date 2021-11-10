@@ -1,3 +1,4 @@
+<%if current_user%>
 <% if flash[:event_create] %>
 <div class="alert alert-success" role="alert">
   Ton event est bien crée😁
@@ -12,6 +13,11 @@
         <p class="card-text">Durée : <%= @event.duration %></p>
         <p class="card-text">Description de l'event : <%= @event.description %></p>
         <p class="card-text">Contact de l'organisateur : <%= @event.user.email %></p>
+        <p class="card-text">Nombre de participant : <%= @count_of_register %></p>
         <%= link_to "M'inscrire", new_event_attendance_path(params['id']), class: "btn btn-outline-warning btn-l"%>
       </ul>
     </div>
+    <%else%>
+    <h1 class="text-center" style="color:red;">Tu n'a pas accès à cette page</h1>
+
+  <%end%>

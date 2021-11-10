@@ -33,6 +33,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @count_of_register = Event.find(params[:id]).users.all.count
   end
 
   private

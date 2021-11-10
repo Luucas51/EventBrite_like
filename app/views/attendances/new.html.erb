@@ -1,3 +1,5 @@
+<% if current_user%>
+
 <h2 class="texte-bienvenue mt-5">Le prix est de <%=@event.price%>$</h2>
 
 <%= form_tag event_charges_path do %>
@@ -20,3 +22,6 @@
           data-amount="<%= @event.price * 100 %>"
           data-locale="auto"></script>
 <% end %>
+<%else%>
+<h1 class="text-center" style="color:red;">Tu n'a pas accès à cette page</h1>
+<%end%>
