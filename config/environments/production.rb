@@ -94,5 +94,5 @@ Rails.application.configure do
   #
   config.serve_static_assets = true
   config.serve_static_files = true
-  config.assets.compile = true
+  config.assets.compile = true # LIGNE QUI PERMET AU IMG DE CHARGER SUR HEROKU
 end
