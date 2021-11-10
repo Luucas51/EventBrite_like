@@ -1,2 +1,11 @@
-<h1>Attendances#index</h1>
-<p>Find me in app/views/attendances/index.html.erb</p>
+    <div class="card-body text-center">
+      <ul class="card-body-left">
+      <h1>Espace administrateur</h1>
+        <h3 class="card-title"></h3>
+        <br>
+        <h3>Liste des participants</h3>
+        <%@attendances.each do |u|%>
+        <%=u.user.email%><br>
+        <%end%>
+      </ul>
+    </div>

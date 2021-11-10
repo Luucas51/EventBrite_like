@@ -34,11 +34,21 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @count_of_register = Event.find(params[:id]).users.all.count
+    @participated = participated?
+    @is_admin = is_admin?
   end
 
   private
 
   def event_params
     params.require(:events).permit(:title, :description, :start_date, :duration, :price, :location, :user)
+  end
+
+  def participated?
+    Event.find(params['id']).users.ids
+  end
+
+  def is_admin?
+    current_user == Event.find(params['id']).user
   end
 end

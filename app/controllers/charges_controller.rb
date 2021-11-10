@@ -12,6 +12,7 @@ class ChargesController < ApplicationController
 
     if @attendance.save
       redirect_to event_attendance_path(id: params['event_id'])
+      flash[:pay_success] = "Paiement ok"
     end
 
     # Amount in cents

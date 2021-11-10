@@ -5,6 +5,10 @@ class AttendancesController < ApplicationController
 
   end
   def index
+    @event = Event.find(params[:event_id])
+    @attendances = Attendance.where(event: @event)
+    @user = User.where(params[:id])
+
   end
   def show
     @event = Event.find(params[:id])
