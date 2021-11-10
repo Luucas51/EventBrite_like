@@ -1,0 +1,22 @@
+<h2 class="texte-bienvenue mt-5">Le prix est de <%=@event.price%>$</h2>
+
+<%= form_tag event_charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Montant à regler : <%= @event.price %>$</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        Stripe.setPublishableKey('PUBLISHABLE_KEY');
+
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Participer à l'évenement"
+          data-amount="<%= @event.price * 100 %>"
+          data-locale="auto"></script>
+<% end %>

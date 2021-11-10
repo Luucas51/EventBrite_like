@@ -11,6 +11,7 @@
         <p class="card-text">Date et heure de début : <%= @event.start_date.strftime("%d/%m/%Y %H:%M") %></p>
         <p class="card-text">Durée : <%= @event.duration %></p>
         <p class="card-text">Description de l'event : <%= @event.description %></p>
-        <p class="card-text">Contact : <%= @event.user.email %></p>
+        <p class="card-text">Contact de l'organisateur : <%= @event.user.email %></p>
+        <%= link_to "M'inscrire", new_event_attendance_path(params['id']), class: "btn btn-outline-warning btn-l"%>
       </ul>
     </div>

@@ -1,0 +1,27 @@
+<div class="card-body">
+  <h1 class="card-title"><strong><%= @event.title %></h1>
+  <h4 class="card-title"><strong><%= @event.start_date.strftime("%d-%m-%Y") %></h4>
+    <h6 class="card-text"><%= @event.description %></h6>
+<%= form_tag event_attendance_path(@event.id) do %>
+
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <%end%>
+      <label class="amount">
+        <span>Montant à regler : <%= @event.price %>$</span>
+      </label>
+    </article>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      Stripe.setPublishableKey('PUBLISHABLE_KEY');
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-description="Participer à l'event"
+      data-amount="<%= @event.price * 100 %>"
+      data-locale="auto">
+</script>
+<% end %>
+
+</div>
