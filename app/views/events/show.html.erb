@@ -11,5 +11,6 @@
         <p class="card-text">Date et heure de début : <%= @event.start_date.strftime("%d/%m/%Y %H:%M") %></p>
         <p class="card-text">Durée : <%= @event.duration %></p>
         <p class="card-text">Description de l'event : <%= @event.description %></p>
+        <p class="card-text">Contact : <%= @event.user.email %></p>
       </ul>
     </div>
