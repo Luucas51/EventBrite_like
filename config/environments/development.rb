@@ -59,4 +59,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'eventbrite-lucas.herokuapp.com' }
+  #
+  config.serve_static_assets = true
+  config.serve_static_files = true
+  config.assets.compile = true
 end
