@@ -59,8 +59,26 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @count_of_register = Event.find(params[:id]).users.all.count
-    @participated = participated?
     @is_admin = is_admin?
+    @is_participated = participated?
+    @attendances = Attendance.where(event: @event)
+  end
+
+  def participated?
+    @event = Event.find(params[:id])
+    is_participated = false
+    particip = Attendance.where(event: @event)
+
+    particip.each do |p|
+      if current_user == p.user
+        is_participated == true
+      end
+    end
+    if is_participated == false
+      puts 'tu particip'
+    else
+      puts 'okkkkkkkkkkkkkkkkkkkkkkk'
+    end
   end
 
   private
@@ -69,11 +87,6 @@ class EventsController < ApplicationController
     params.require(:events).permit(:title, :description, :start_date, :duration, :price, :location, :user)
   end
 
-  def participated?
-    if current_user
-    Event.find(params['id']).users.ids
-    end
-  end
 
   def is_admin?
     current_user == Event.find(params['id']).user
