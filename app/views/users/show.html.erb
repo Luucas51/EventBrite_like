@@ -7,7 +7,19 @@ a:hover {
   text-decoration: none;
   color: black;
 }
+
+.size-avatar {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
 </style>
+
+
+
+<%= image_tag @id.avatar.variant(resize: "200x200!"), class: " mx-auto size-avatar"%>
+
+
 <div class="container-fluid text-center">
 <h2 class="texte-bienvenue mt-5">Mon profile : </h2>
   Email : <%=@id.email%> <br>
@@ -29,3 +41,14 @@ a:hover {
 	            </div>
 	        <% end %>
     <% end %>
+
+ <h3>Changer d'avatar ?</h3>
+<%= form_tag user_avatars_path(@id), multipart: true do %>
+  <%= file_field_tag :avatar %>
+  <%= submit_tag "mettre à jour" %>
+<% end %>
+
+
+
+
+
