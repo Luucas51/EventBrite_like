@@ -8375,9 +8375,3 @@ h1, h2, h3, h4, h5,
   .form-control:focus, .form-control:active {
     border-color: #000; }
 
-  .jumbotron {
-    background-image: url("taipei-jumbo.jpg");
-    padding-bottom: 200px;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
