@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     resources :charges
     resources :attendances
   end
+  resources :admin, only: [:index]
+    namespace :admin do
+      root to: 'admin#index'
+      resources :events, :users
+    end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
