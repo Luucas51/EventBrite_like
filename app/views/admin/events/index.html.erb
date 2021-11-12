@@ -1,0 +1,22 @@
+<div class="container-fluid text-center">
+<h1 class="texte-bienvenue mt-5">Gérer les événements</h1>
+<%Event.all.each do |e|%>
+<div class="col-sm-4 mx-auto pt-3">
+<div class="card">
+<div class="card-body">
+    <h4 class="card-text"><%=e.title%></h4>
+    <p class="card-text"> Description : <%=e.description%> </p>
+    <p class="card-text">Durée : <%=e.duration/60%>h </p>
+    <p class="card-text">Date de début : <%=e.start_date.strftime("%d/%m/%Y %H:%M")%></p>
+    <p class="card-text">Prix : <%=e.price%>$</p>
+    <p class="card-text">Lieu : <%=e.location%> </p>
+    <p class="card-text"><%=e.user.first_name%> <%= e.user.last_name%> </p>
+
+
+    <%= link_to "Gérer l'événement", admin_event_path(e.id), class: "btn btn-outline-warning btn-s" %>
+</div>
+</div>
+</div>
+<%end%>
+</div>
+

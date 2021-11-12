@@ -1,0 +1,23 @@
+<div class="container-fluid text-center">
+<h1 class="texte-bienvenue mt-5">Info de l'événement n°: <%=@event.id%></h1>
+<div class="col-sm-4 mx-auto pt-3">
+
+<div class="mt-5 mb-5">
+    <p>Titre : <strong><%=@event.title%></strong></p>
+    <p>Description : <strong><%=@event.description%></strong> </p>
+    <p>Prénom et nom du créateur : <strong><%=@event.user.first_name%> <%=@event.user.last_name%></strong> </p>
+    <p>Email du créateur : <strong><%=@event.user.email%></strong> </p>
+    <p>Durée : <strong><%=@event.duration/60%>h</strong> </p>
+    <p>Date de début : <strong><%=@event.start_date.strftime("%d/%m/%Y %H:%M")%></strong></p>
+    <p>Prix : <strong><%=@event.price%>$</strong> </p>
+    <p>Lieu : <strong><%=@event.location%> </strong></p>
+    <%= link_to "Modifier l'événement", edit_admin_event_path(@event.id), class: 'btn btn-outline-warning btn-s' %>
+    <%= link_to "Supprimer l'événement", admin_event_path(@event.id), class: 'btn btn-outline-warning btn-s', :method => 'DELETE', :data => {:confirm => 'Tu veut vraiment supprimer ce profil ?'} %>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
