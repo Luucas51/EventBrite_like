@@ -1,0 +1,16 @@
+<div class="container-fluid text-center">
+<h1 class="texte-bienvenue mt-5">Info de l'utilisateur n°: <%=@user.id%></h1>
+<div class="col-sm-4 mx-auto pt-3">
+    <p>Prénom : <strong><%=@user.first_name%></strong></p>
+    <p>Nom : <strong><%=@user.last_name%></strong> </p>
+    <p>Email : <strong><%=@user.email%></strong> </p>
+    <p>Compte crée le : <strong><%=@user.created_at.strftime("%d/%m/%Y %H:%M")%></strong> </p>
+    <p>Dernière modification le : <strong><%=@user.updated_at.strftime("%d/%m/%Y %H:%M")%></strong> </p>
+    <%= link_to "Modifier le profil", edit_admin_user_path(@user.id), class: 'btn btn-outline-warning btn-s' %>
+    <%= link_to "Supprimer le profil", admin_user_path(@user.id), class: 'btn btn-outline-warning btn-s', :method => 'DELETE', :data => {:confirm => 'Tu veut vraiment supprimer ce profil ?'} %>
+
+
+</div>
+</div>
+</div>
+</div>

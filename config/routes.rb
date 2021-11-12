@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :admin, only: [:index]
     namespace :admin do
       root to: 'admin#index'
-      resources :events, :users
+      resources :events, :users, :admin
     end
 
 

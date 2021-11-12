@@ -1,1 +1,16 @@
-<h1>Interface admin</h1>
+<div class="container-fluid text-center">
+<h1 class="texte-bienvenue mt-5">Gérer les utilisateurs</h1>
+<%User.all.each do |u|%>
+<div class="col-sm-4 mx-auto pt-3">
+<div class="card">
+<div class="card-body">
+    <h4 class="card-text"><%=u.first_name%></h4>
+    <h4 class="card-text"><%=u.last_name%> </h4>
+    <%= link_to "Gérer l'utilisateur", admin_user_path(u.id), class: "btn btn-outline-warning btn-s" %>
+</div>
+</div>
+</div>
+<%end%>
+</div>
+
+
