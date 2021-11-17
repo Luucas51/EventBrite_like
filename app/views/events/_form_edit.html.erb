@@ -1,0 +1,47 @@
+ <div class="jumbotron text-center">
+ <div class="container">
+    <h1 class= "display-3 jumbotron-heading">Modifier mon événement</h1>
+    <p>Merci de remplir le formulaire ci-dessous</p>
+  </div>
+</div>
+ 
+<div class="container">
+  <%= form_tag url_for(action: 'update'), method: "patch" do %>
+    <div class="form-group">
+      <label>Titre de l'événement</label>
+       <%= text_field_tag 'title', @event.title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <label>Lieu</label>
+      <%= text_field_tag 'location', @event.location, class: 'form-control' %>
+    </div>
+  <div class="form-row">
+     <div class="form-group col-md-5">
+        <label>Durée de l'événement (en min) </label>
+        <%= number_field_tag 'duration', @event.duration, class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-5">
+        <label>Date de l'événement </label>
+        <%= datetime_field_tag 'start_date', @event.start_date, class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputAddress">Prix (en €)</label>
+        <%= text_field_tag 'price', @event.price, class: 'form-control' %>
+      </div>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+      <%= text_area_tag 'description', @event.description, class: 'form-control' %>
+  </div>
+
+  <div class="btn">
+      <%= submit_tag 'Modifier', class: 'btn btn-outline-warning btn-m' %>
+  </div>
+<% end %>
+
+<%= link_to "Supprimer l'évenement", event_path(@event), :class => "btn btn-outline-warning btn-l", :method => 'DELETE', :data => {:confirm => 'Tu veut vraiment supprimer cette évenement ?'} %>
+
+
+
+</div>
+

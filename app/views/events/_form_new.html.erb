@@ -1,0 +1,51 @@
+<% if flash[:event_error] %>
+<div class="alert alert-danger" role="alert">
+  Erreur de saisis
+</div>
+<%end%>
+<div class="container-fluid text-center">
+  <h2 class="texte-bienvenue mt-5">Crée un évenement</h2>
+  <div class="container-fluid">
+    <%= form_for(:events,  url:(events_path), action: 'create', method: :post) do |f| %>
+
+      <div class="field">
+        <%= f.label "Titre" %><br />
+        <%= f.text_field :title, autofocus: true, autocomplete: :title %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label "Description" %> <br />
+        <%= f.text_area :description, autocomplete: :description %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label "Lieu" %> <br />
+        <%= f.text_field :location, autocomplete: :location %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label "Prix" %> <br />
+        <%= f.number_field :price, autocomplete: :price %>
+      </div><br />
+
+      <div class="field">
+        <%= f.label "Date et heure de début" %> <br />
+        <%= f.datetime_field :start_date, autocomplete: :start_date %>
+      </div><br />
+      
+      <div class="field">
+        <%= f.label "Durée en minute"%> <br />
+        <%= f.text_field :duration, placeholder: "Un multiple de 5" %>
+      </div><br />
+
+           
+      <div class="actions">
+          <%= f.submit "Crée", class:"btn btn-outline-primary btn-lg" %>
+      </div>
+      
+    <% end %>
+  </div>
+  <div class="mt-5 container-fluid">
+    <%= link_to "Retour", :back %>
+  </div>
+</div>

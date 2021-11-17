@@ -1,0 +1,57 @@
+<style>
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+</style>
+<div class="container-fluid text-center">
+
+<h2 class="texte-bienvenue mt-5">Changer de mot de passe</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field w-25 mx-auto">
+    <%= f.label "Email" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-4" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field w-25 mx-auto">
+    <%= f.label "Nouveau mot de passe" %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> caractères minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field w-25 mx-auto">
+    <%= f.label "Confirmer mot de passe" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mb-4" %>
+  </div>
+
+  <div class="field w-25 mx-auto">
+    <%= f.label "Mot de passe actuelle" %> <i>(Par mesure de sécurité)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control mb-4" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Confirmer", class: "btn btn-outline-warning btn-s mb-4" %>
+  </div>
+<% end %>
+
+<h3>Supprimer le compte</h3>
+
+<p> <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes vous sur ?" }, method: :delete, class: "btn btn-outline-warning btn-s" %></p>
+
+<%= link_to "Retour", :back %>
+
+</div>
